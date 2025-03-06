@@ -72,6 +72,8 @@ public class PlayerMovement : MonoBehaviour
         Vector3 newPosition = rb.position + moveDirection * moveSpeed * Time.fixedDeltaTime;
         rb.MovePosition(newPosition);
         animator.SetFloat("Speed", rb.velocity.magnitude);
+        //Debug.Log("speed: "+ rb.velocity.magnitude);
+        
     }
 
     private void RotatePlayer()
