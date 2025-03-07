@@ -1209,6 +1209,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster Skin1
       objectReference: {fileID: 0}
+    - target: {fileID: 9081247891841179449, guid: 937b81db8bd32214a9e53ae8838a83d6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1754,6 +1758,10 @@ PrefabInstance:
     - target: {fileID: 1309486516299566, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
       propertyPath: m_Name
       value: Ghoul
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309486516299566, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1309486516299566, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
       propertyPath: m_TagString
@@ -4679,7 +4687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4394185532969230, guid: 9e066cea98814aa448c70270a3c60251, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: 4394185532969230, guid: 9e066cea98814aa448c70270a3c60251, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5950,15 +5958,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2504124360012906638, guid: d9fac7ddbbf00ae438007391c6283dc5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4.84
       objectReference: {fileID: 0}
     - target: {fileID: 2504124360012906638, guid: d9fac7ddbbf00ae438007391c6283dc5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 2504124360012906638, guid: d9fac7ddbbf00ae438007391c6283dc5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.39
       objectReference: {fileID: 0}
     - target: {fileID: 2504124360012906638, guid: d9fac7ddbbf00ae438007391c6283dc5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5991,6 +5999,10 @@ PrefabInstance:
     - target: {fileID: 2993696908516039220, guid: d9fac7ddbbf00ae438007391c6283dc5, type: 3}
       propertyPath: m_Name
       value: Monster Skin3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993696908516039220, guid: d9fac7ddbbf00ae438007391c6283dc5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6142,6 +6154,10 @@ PrefabInstance:
     - target: {fileID: 5945277351763568910, guid: d380fe106f8936a43ab8bccf0dc36268, type: 3}
       propertyPath: m_Name
       value: Monster Skin2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945277351763568910, guid: d380fe106f8936a43ab8bccf0dc36268, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6470000221877875636, guid: d380fe106f8936a43ab8bccf0dc36268, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6787,7 +6803,7 @@ Transform:
   m_GameObject: {fileID: 1695358337}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.09}
   m_LocalScale: {x: 100, y: 1, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []

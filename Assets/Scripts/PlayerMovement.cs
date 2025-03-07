@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnAttack()
     {
         animator.SetTrigger("Attack");
+        Debug.Log("attack!");
     }
 
     public void ThrowBall()
