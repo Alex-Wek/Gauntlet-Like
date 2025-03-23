@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class W_Projectile : MonoBehaviour
 {
-    public float speed = 10f;
-    public float lifetime = 3f;
+    private float speed = 50f;
+    public float lifetime = 10f;
     public int damage = 20;
 
     private Rigidbody rb;
