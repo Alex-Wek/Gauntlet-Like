@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,9 @@ public class EnemyProto : MonoBehaviour, EnemyInterface
     private Transform t;
     private Transform player;
     public float moveSpeed;
-    private Animation animation;
+    private Animation animate;
     public float attackDistance = 0f;
+    private bool isDead = true;
 
     // Start is called before the first frame update
     void Start()
@@ -18,14 +20,14 @@ public class EnemyProto : MonoBehaviour, EnemyInterface
         rb = GetComponent<Rigidbody>();
         t = GetComponent<Transform>();
         player = GameObject.FindWithTag("Player").transform;
-        animation = GetComponent<Animation>();
+        animate = GetComponent<Animation>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
 
-        if(Vector3.Distance(player.position, transform.position) > attackDistance)
+        if(Vector3.Distance(player.position, transform.position) > attackDistance && !isDead)
         {
             SeakPlayer();
         }
@@ -37,7 +39,7 @@ public class EnemyProto : MonoBehaviour, EnemyInterface
 
     public void TakeDamage(float damage)
     {
-        animation.Play("gethit");
+        GetComponent<Animation>().Play("Idle");
         health -= damage;
         if(health <= 0)
         {
@@ -49,13 +51,13 @@ public class EnemyProto : MonoBehaviour, EnemyInterface
     {
         //animation die, start despawn timer
         Debug.Log("enemy has died");
-        animation.Play("Death");
+        GetComponent<Animation>().Play("DeathG");
         this.enabled = false;
     }
 
     public void SeakPlayer()
     {
-        animation.Play("Walk");
+        GetComponent<Animation>().Play("Walk");
         t.LookAt(player);
         Vector3 direction = (player.position - transform.position).normalized;
         rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
@@ -63,6 +65,6 @@ public class EnemyProto : MonoBehaviour, EnemyInterface
 
     public void Attack()
     {
-        animation.Play("Attack2");
+        GetComponent<Animation>().Play("Attack2");
     }
 }

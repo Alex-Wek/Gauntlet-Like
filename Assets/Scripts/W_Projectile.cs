@@ -15,7 +15,6 @@ public class W_Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * speed, ForceMode.Impulse);
         Destroy(gameObject, lifetime);
-        Debug.Log("I have spawned");
         
     }
 
@@ -26,8 +25,9 @@ public class W_Projectile : MonoBehaviour
         {
             enemy.TakeDamage(damage);
             Debug.Log("enemy hit " + other.name);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     // Update is called once per frame

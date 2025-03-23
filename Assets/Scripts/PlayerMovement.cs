@@ -56,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void ThrowBall()
     {
-        Debug.Log("THROW BALL");
         GameObject flail = Instantiate(projectile, transform);
     }
 
