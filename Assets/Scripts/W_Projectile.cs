@@ -5,7 +5,7 @@ public class W_Projectile : MonoBehaviour
 {
     private float speed = 50f;
     public float lifetime = 10f;
-    public int damage = 20;
+    private int damage = 10000;
 
     private Rigidbody rb;
 
@@ -25,7 +25,7 @@ public class W_Projectile : MonoBehaviour
         {
             enemy.TakeDamage(damage);
             Debug.Log("enemy hit " + other.name);
-            Destroy(gameObject);
+           // Destroy(gameObject);
         }
         //Destroy(gameObject);
     }

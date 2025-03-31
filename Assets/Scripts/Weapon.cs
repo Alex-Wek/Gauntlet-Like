@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public float damage = 10f;
+    private float damage = 10000f;
 
     // Start is called before the first frame update
     void Start()

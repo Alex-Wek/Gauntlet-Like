@@ -12,11 +12,15 @@ public class EnemyProto : MonoBehaviour, EnemyInterface
     public float moveSpeed;
     private Animation animate;
     public float attackDistance = 0f;
-    private bool isDead = true;
+    private bool isDead = false;
+    private GameObject spawner;
+
+public float destroyTime = 8f;
 
     // Start is called before the first frame update
     void Start()
     {
+        spawner = GameObject.Find("SpawnGeneration");
         rb = GetComponent<Rigidbody>();
         t = GetComponent<Transform>();
         player = GameObject.FindWithTag("Player").transform;
@@ -39,6 +43,7 @@ public class EnemyProto : MonoBehaviour, EnemyInterface
 
     public void TakeDamage(float damage)
     {
+        Debug.Log("THIS MUCH" +damage);
         GetComponent<Animation>().Play("Idle");
         health -= damage;
         if(health <= 0)
@@ -52,7 +57,9 @@ public class EnemyProto : MonoBehaviour, EnemyInterface
         //animation die, start despawn timer
         Debug.Log("enemy has died");
         GetComponent<Animation>().Play("DeathG");
+        spawner.GetComponent<Spawner>().bodyCount -= 1;
         this.enabled = false;
+        Destroy(gameObject, destroyTime);
     }
 
     public void SeakPlayer()
