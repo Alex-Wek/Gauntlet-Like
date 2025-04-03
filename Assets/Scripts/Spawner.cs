@@ -23,17 +23,6 @@ public class Spawner : MonoBehaviour
 
     IEnumerator SpawnAroundPlayer()
     {
-        
-            // //spawn n emenies m untis away from player at random locations
-            // for (int i = 0; i < enemyCount; i++)
-            // {
-            //     Vector2 randomDir = Random.insideUnitCircle.normalized;
-            //     Vector3 offset = new Vector3(randomDir.x, 0, randomDir.y) * distance;
-            //     Vector3 pos = player.transform.position + offset;
-            //     Instantiate(enemy, pos, Quaternion.identity);
-
-            //     yield return new WaitForSeconds(0.3f);
-            // }
 
                         //spawn n emenies m untis away from player at random locations
             while(true){
@@ -43,9 +32,8 @@ public class Spawner : MonoBehaviour
                     Vector3 pos = player.transform.position + offset;
                     Instantiate(enemy, pos, Quaternion.identity);
                     bodyCount += 1;
-
-                    yield return new WaitForSeconds(0.3f);
                 }
+                yield return new WaitForSeconds(0.3f);
             }
     }
 

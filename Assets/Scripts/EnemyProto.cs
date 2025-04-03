@@ -13,9 +13,9 @@ public class EnemyProto : MonoBehaviour, EnemyInterface
     private Animation animate;
     public float attackDistance = 0f;
     private bool isDead = false;
-    private GameObject spawner;
+    public GameObject spawner;
 
-public float destroyTime = 8f;
+    public float destroyTime = 8f;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +25,7 @@ public float destroyTime = 8f;
         t = GetComponent<Transform>();
         player = GameObject.FindWithTag("Player").transform;
         animate = GetComponent<Animation>();
+        
     }
 
     // Update is called once per frame
@@ -58,7 +59,9 @@ public float destroyTime = 8f;
         Debug.Log("enemy has died");
         GetComponent<Animation>().Play("DeathG");
         spawner.GetComponent<Spawner>().bodyCount -= 1;
+
         this.enabled = false;
+        isDead = true;
         Destroy(gameObject, destroyTime);
     }
 
