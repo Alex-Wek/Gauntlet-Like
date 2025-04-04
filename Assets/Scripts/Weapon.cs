@@ -20,9 +20,12 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("meleeweapon triggered");
+        Debug.Log(other);
         EnemyInterface enemy = other.GetComponent<EnemyInterface>();
         if(enemy != null)
         {
+            Debug.Log("hit with melee ball");
             enemy.TakeDamage(damage);
         }
     }

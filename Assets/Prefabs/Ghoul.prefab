@@ -1676,7 +1676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   moveSpeed: 10
-  attackDistance: 9
+  attackDistance: 10
   spawner: {fileID: 0}
   destroyTime: 8
 --- !u!1 &6097991902928864583
