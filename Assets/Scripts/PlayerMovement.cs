@@ -52,11 +52,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
 //this is all combat to move to combat script
-    private void OnAttack()
-    {
-        animator.SetTrigger("Attack");
-     
-    }
+
 
     public void ThrowBall()
     {

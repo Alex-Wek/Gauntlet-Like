@@ -6,6 +6,7 @@ using UnityEngine.UIElements.Experimental;
 public class Spawner : MonoBehaviour
 {
     public GameObject enemy;
+    public float spawnSpeed;
     public GameObject player;
     public float enemyCount = 100f;
     public float distance = 10f;
@@ -33,7 +34,7 @@ public class Spawner : MonoBehaviour
                     Instantiate(enemy, pos, Quaternion.identity);
                     bodyCount += 1;
                 }
-                yield return new WaitForSeconds(0.3f);
+                yield return new WaitForSeconds(spawnSpeed);
             }
     }
 
