@@ -6,14 +6,16 @@ using UnityEngine;
 public class EnemyProto : MonoBehaviour, EnemyInterface
 {
     public float health;
+    public float damage;
     private Rigidbody rb;
     private Transform t;
     private Transform player;
     public float moveSpeed;
-    private Animation animate;
-    public float attackDistance = 0f;
+    public float attackDistance;
     private bool isDead = false;
-    public GameObject spawner;
+    private bool isAttacking = false;
+    private GameObject spawner;
+    public Animator animate; 
 
     public float destroyTime = 8f;
 
@@ -24,20 +26,20 @@ public class EnemyProto : MonoBehaviour, EnemyInterface
         rb = GetComponent<Rigidbody>();
         t = GetComponent<Transform>();
         player = GameObject.FindWithTag("Player").transform;
-        animate = GetComponent<Animation>();
-        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
 
-        if(Vector3.Distance(player.position, transform.position) > attackDistance && !isDead)
+        if(Vector3.Distance(player.position, transform.position) > attackDistance)
         {
+            animate.SetBool("isAttack", false);
             SeakPlayer();
         }
         else
         {
+            animate.SetBool("isAttack", true);
             Attack();
         }
     }
@@ -45,7 +47,7 @@ public class EnemyProto : MonoBehaviour, EnemyInterface
     public void TakeDamage(float damage)
     {
         Debug.Log("THIS MUCH" +damage);
-        GetComponent<Animation>().Play("Idle");
+        animate.SetTrigger("Hit");
         health -= damage;
         if(health <= 0)
         {
@@ -57,8 +59,8 @@ public class EnemyProto : MonoBehaviour, EnemyInterface
     {
         //animation die, start despawn timer
         Debug.Log("enemy has died");
-        GetComponent<Animation>().Play("DeathG");
-        spawner.GetComponent<Spawner>().bodyCount -= 1;
+        animate.SetBool("isDead", true);
+        //wwwspawner.GetComponent<Spawner>().bodyCount -= 1;
 
         this.enabled = false;
         isDead = true;
@@ -66,15 +68,33 @@ public class EnemyProto : MonoBehaviour, EnemyInterface
     }
 
     public void SeakPlayer()
-    {
-        GetComponent<Animation>().Play("Walk");
+    {   if(!isDead){
+        isAttacking = false;
+        animate.SetFloat("Speed", rb.velocity.magnitude);
         t.LookAt(player);
         Vector3 direction = (player.position - transform.position).normalized;
         rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
     }
+    }
 
     public void Attack()
     {
-        GetComponent<Animation>().Play("Attack2");
+            animate.SetTrigger("Attack");
+            isAttacking = true;
+        
+    }
+
+        private void OnTriggerEnter(Collider other)
+    {
+       
+        //Debug.Log("meleeweapon triggered");
+        //EnemyInterface enemy = other.GetComponentInParent<EnemyInterface>();
+
+        // if(enemy != null && animator.GetBool("isMelee"))
+        // {
+        //     Debug.Log("hit with melee ball");
+        //     Debug.Log(enemy);
+        //     enemy.TakeDamage(damage);
+        // }
     }
 }

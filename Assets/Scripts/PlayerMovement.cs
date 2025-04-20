@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     private float lastMeleeTime;
     public LayerMask enemyLayer; //need to set to enemy layer
     public int meleeDamage = 50;
+
+    private PlayerCombat pc;
     
 
     private void Awake()
@@ -32,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         transform = GetComponent<Transform>();
         mainCamera = Camera.main;
+        pc = GetComponent<PlayerCombat>();
     }
 
     private void OnMove(InputValue value)
@@ -89,7 +92,11 @@ public class PlayerMovement : MonoBehaviour
      private void FixedUpdate()
     {
         moveSpeed = isRunning ? runSpeed : walkSpeed;
-        MovePlayer();
+        if(!pc.getAttacking())
+        {
+            MovePlayer();
+        }
+
         RotatePlayer();
         //CheckForMeleeAttack();
     }
