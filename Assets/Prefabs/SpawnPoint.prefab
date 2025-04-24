@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  spawnSpeed: 2
-  spawner: {fileID: 0}
-  maxBody: 100
+  spawnSpeed: 10
+  spawner: {fileID: 6362418873685828494}
+  maxBody: 10
+  health: 10

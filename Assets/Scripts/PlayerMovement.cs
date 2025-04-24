@@ -62,33 +62,6 @@ public class PlayerMovement : MonoBehaviour
         GameObject flail = Instantiate(projectile, transform);
     }
 
-    // private void CheckForMeleeAttack()
-    // {
-    //     if(rb.velocity.magnitude < 0.1f || Time.time < lastMeleeTime + meleeCooldown)
-    //     {
-    //         return;
-    //     }
-    //         // Cast a short ray in the movement direction
-    //     Vector3 direction = new Vector3(movement.x, 0f, movement.z).normalized;
-    //     Vector3 origin = transform.position + Vector3.up * 0.5f; // Slightly above ground
-    //     Ray ray = new Ray(origin, direction);
-
-    //     if (Physics.Raycast(ray, out RaycastHit hit, meleeRange, enemyLayer))
-    //     {
-    //     // You hit an enemy
-    //         EnemyInterface enemy = hit.collider.GetComponent<EnemyInterface>();
-    //         if(enemy != null)
-    //     {
-    //         enemy.TakeDamage(meleeDamage);
-    //         Debug.Log("enemy hit ");
-    //        // Destroy(gameObject);
-    //     }
-    //     lastMeleeTime = Time.time;
-    //     animator.SetTrigger("Melee");
-    //     }
-            
-    // }
-
      private void FixedUpdate()
     {
         moveSpeed = isRunning ? runSpeed : walkSpeed;

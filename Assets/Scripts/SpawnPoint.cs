@@ -9,8 +9,19 @@ public class SpawnPoint : MonoBehaviour
     public GameObject spawner;          // The object where enemies will be spawned at
     public int maxBody = 2;           // Maximum number of enemies to spawn
     private int bodyCount = 0; 
-    public float SpawnPointHealth = 4f;         // Counter for spawned enemies
+    public float health = 4f;         // Counter for spawned enemies
 
+    
+    private Renderer rend;
+    private Color originalColor;
+
+    void Start()
+    {
+        rend = GetComponent<Renderer>();
+        originalColor = rend.material.color;
+    }
+
+    
     void Awake()
     {
         StartCoroutine(SpawnAtFixedLocation());
@@ -42,12 +53,22 @@ public class SpawnPoint : MonoBehaviour
     }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int dmg)
     {
-       SpawnPointHealth -= damage;
-        if (SpawnPointHealth <= 0)
+        health -= dmg;
+        StartCoroutine(FlashRed());
+
+        if (health <= 0)
         {
             Destroy(gameObject);
         }
     }
+
+        IEnumerator FlashRed()
+    {
+        rend.material.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        rend.material.color = originalColor;
+    }
 }
+

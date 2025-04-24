@@ -44,26 +44,25 @@ public class PlayerCombat : MonoBehaviour
         GameObject flail = Instantiate(projectile, transform);
     }
 
-    //this on trigger event is coupled with melee attacks
-    void OnTriggerEnter(Collider other)
-    {
-        EnemyInterface enemy = other.GetComponent<EnemyInterface>();
-        if(enemy != null)
-        {
-            animator.SetBool("isMelee", true);
-            // enemy.TakeDamage(meleeDamage);
-            //animator.SetTrigger("Melee");
-        }
-    }
-
-
-    void EndMelee(){
+    // //this on trigger event is coupled with melee attacks
+    // void OnTriggerEnter(Collider other)
+    // {
+    //     EnemyInterface enemy = other.GetComponent<EnemyInterface>();
+    //     if(enemy != null)
+    //     {
+    //         animator.SetBool("isMelee", true);
+    //         // enemy.TakeDamage(meleeDamage);
+    //         //animator.SetTrigger("Melee");
+    //     }
+    // }
+    public void EndMelee(){
         animator.SetBool("isMelee",false);
+    }
+    public void StartMelee(){
+        animator.SetBool("isMelee",true);
     }
 
     public bool getAttacking(){
         return isAttacking;
     }
-
-
 }

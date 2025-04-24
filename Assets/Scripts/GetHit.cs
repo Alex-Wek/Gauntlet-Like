@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GetHit : MonoBehaviour
 {
+private Color originalColor;
 
     private EnemyProto enemy;
     // Start is called before the first frame update
@@ -17,12 +18,13 @@ public class GetHit : MonoBehaviour
     {  
     }
 
+//now it makes sense. the collider on the enemy is runnign into the weapon
     private void OnTriggerEnter(Collider other)
     {
         if(other != null && other.CompareTag("Weapon")){
 
             enemy.TakeDamage(other.GetComponent<Weapon>().getDamage());
-            Debug.Log("actia;lly got here");
+            //Debug.Log("actia;lly got here");
         }
     }
 }
